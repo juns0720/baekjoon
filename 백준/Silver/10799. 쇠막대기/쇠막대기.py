@@ -2,31 +2,20 @@ import sys
 input = sys.stdin.readline
 
 
-stick = list(input().rstrip())
-
+str = (input().rstrip())
+str = str.replace('()','1')
+stick = list(str)
 Stack = []
-count = 0
 last = 0
+
 for i in range(0,len(stick)):
-    if stick[i] == '('and stick[i+1] !=')':
-            if stick[i] =='(':
-                  count+=1
-                  last+=1
-
-    elif stick[i] == '('and stick[i+1] ==')':
-        last+=count
-
-    elif i != (len(stick)-1):
-        if stick[i] == ')'and stick[i-1] !='(':
-            count-=1
-
+    if stick[i] =='(':
+        Stack.append('(')
+        last+=1
+    elif stick[i] == '1':
+        last +=int(len(Stack))
+    elif stick[i] ==')':
+        Stack.pop()
+        
 print(last)
           
-
-            
-
-
-
-
-
-

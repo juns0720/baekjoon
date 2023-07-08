@@ -8,7 +8,7 @@ visited = [[0 for _ in range(X)] for _ in range(Y)]
 box = [list(map(int,input().split())) for _ in range(Y)]
 queue = deque([])
 max_res = 0
-min_res = False
+grow = True
 # x,y = 시작 좌표
 # tx,ty = 현재 좌표
 
@@ -36,9 +36,10 @@ BFS(0,0,X,Y)
 for i in box:
     max_res = max(max(i),max_res)
     if 0 in i:
-        min_res = True
+        grow = False
+        break
 
-if min_res == True:
+if grow == False:
     print(-1)
 else:
     print(max_res-1)

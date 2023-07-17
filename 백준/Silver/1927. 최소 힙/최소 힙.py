@@ -2,16 +2,16 @@ import sys
 import heapq
 input = sys.stdin.readline
 
-hp = []
+heap = []
+N = int(input())
 
-for _ in range(int(input())):
-    x = int(input())
-    if x == 0:
-        if len(hp) == 0:
+for i in range(N):
+    temp = int(input())
+    if temp == 0:
+        if not heap:
             print(0)
         else:
-            print(heapq.heappop(hp))      
+            print(heapq.heappop(heap))
     else:
-        heapq.heappush(hp,x)
-            
-            
+        heapq.heappush(heap,temp)
+

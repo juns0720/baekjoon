@@ -35,7 +35,7 @@ cnt2 = 1
 res = []
 while True:
     visited = [[0 for _ in range(M)] for _ in range(N)]
-    visited[0][0] = 0
+    visited[0][0] = 1
     queue.append((0,0))
     cnt2 = BFS()
     res.append(cnt2)

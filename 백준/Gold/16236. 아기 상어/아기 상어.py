@@ -10,7 +10,6 @@ def find_shark():
                 return (i,j)
     return (-1,-1)
 
-food = []
 lev = [2,0]
 dis = 0
 def BFS(sy,sx):
@@ -36,8 +35,6 @@ def BFS(sy,sx):
         if lev[0] == lev[1]:
             lev[0]+=1
             lev[1] = 0
-        queue.clear()
-        food.clear()
         return d
     else:
         d = 0
@@ -45,6 +42,7 @@ def BFS(sy,sx):
 while True:
     visited = [[0 for _ in range(N)] for _ in range(N)]
     queue = deque([])
+    food = []
     y,x = find_shark()
     if y == -1 and x == -1:
         break

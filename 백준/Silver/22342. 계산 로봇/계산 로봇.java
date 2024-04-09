@@ -45,7 +45,7 @@ public class Main {
             }
         }
         for(int row = 0; row < height; row++)
-            maxSaveCost = saveCosts[row][width-1];
+            maxSaveCost = Math.max(saveCosts[row][width-1], maxSaveCost);
         System.out.println(maxSaveCost);
     }
 }

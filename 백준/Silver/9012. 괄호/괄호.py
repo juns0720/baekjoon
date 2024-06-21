@@ -7,10 +7,9 @@ for i in range(n):
     cnt = 0
     s = list(input().strip())
     for i in range(len(s)):
-        s1 = s.pop()
-        if s1 == ')':
+        if s[i] == '(':
             cnt+=1
-        elif s1 == '(':
+        elif s[i] == ')':
             cnt-=1
             if cnt < 0:
                 break

@@ -14,8 +14,9 @@ while lstB[0] > 0:
             cnt+=1
     if lstB[0] == 0:
         break
+
     for i in range(n):
-        lstB[i] //= 2
+        lstB[i] >>= 1
     cnt+=1
 for i in range(n):
     cnt+=lstB[i]

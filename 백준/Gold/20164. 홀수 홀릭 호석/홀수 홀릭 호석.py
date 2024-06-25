@@ -1,4 +1,3 @@
-
 """
 1. 한 자리 수
  - 바로 종료
@@ -12,7 +11,7 @@
 분할 포인트 3개 잡기
 """
 def convert(n, p1,p2):
-    return list(str(int(''.join(n[:p1])) + int(''.join(n[p1:p2])) + int(''.join(n[p2:]))))
+    return str(int(n[:p1]) + int(n[p1:p2]) + int(n[p2:]))
 
 def recursion(n, cnt):
     for i in n:
@@ -23,18 +22,16 @@ def recursion(n, cnt):
         res[1] = max(res[1], cnt)
         return
     elif len(n) == 2:
-        next_arr = list(str(int(n[0]) + int(n[1])))
-        recursion(next_arr, cnt)
+        recursion(str(int(n[0]) + int(n[1])), cnt)
     else:
-        for p in list(combinations([i for i in range(1, len(n))], 2)):
-            next_arr = convert(n, p[0], p[1])
-            recursion(next_arr, cnt)
+        for i in range(1, len(n)):
+            for j in range(i+1, len(n)):
+                recursion(convert(n, i, j), cnt)
     
 import sys
-from itertools import combinations
 input = sys.stdin.readline
 
-N = list(input().strip())
+N = input().strip()
 res = [10**9,0]
 recursion(N, 0)
 print(res[0],res[1])

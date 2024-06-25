@@ -25,13 +25,11 @@ input = sys.stdin.readline
 heap = []
 
 for _ in range(N):
-    for cur_num in list(map(int,input().split())):
+    for cur_num in map(int,input().split()):
         if len(heap) < N:
             heapq.heappush(heap,cur_num)
         else:
-            min_num = heapq.heappop(heap)
-            if min_num < cur_num:
-                heapq.heappush(heap,cur_num)
-            else:
-                heapq.heappush(heap, min_num)
-print(heapq.heappop(heap))
+            if cur_num > heap[0]:
+                heapq.heappop(heap)
+                heapq.heappush(heap, cur_num)
+print(heap[0])

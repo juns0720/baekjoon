@@ -3,7 +3,7 @@ from collections import deque
 input = sys.stdin.readline
 
 n,s,d,f,b,k = map(int,input().split())
-police = list(map(int,input().split()))
+police = set(map(int,input().split()))
 
 def bfs():
     visited = [0 for _ in range(n+1)]

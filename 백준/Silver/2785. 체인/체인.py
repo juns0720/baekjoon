@@ -1,5 +1,4 @@
 import sys
-from collections import deque
 input = sys.stdin.readline
 
 '''짧은 고리를 끊어서 긴 고리끼리 묶는다.'''

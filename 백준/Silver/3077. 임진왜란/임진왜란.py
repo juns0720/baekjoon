@@ -18,4 +18,4 @@ while stack:
     if crnt < prev:
       res+=1
   tmp.append(crnt)
-print(str(res) +"/"+ str(total))
+print(f"{res}/{total}")

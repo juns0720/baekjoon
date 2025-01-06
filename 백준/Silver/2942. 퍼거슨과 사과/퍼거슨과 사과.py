@@ -1,15 +1,20 @@
 import sys
+from math import gcd, isqrt
 input = sys.stdin.readline
 
 
-def gdc(a,b):
-    while b > 0:
-        a, b = b, a%b
-    return a
+
 
 R,G = map(int,input().split())
 
-n = gdc(R,G)
-for i in range(1, n+1):
-    if R % i == 0 and G % i == 0:
-        print(i,R//i,G//i)
+n = gcd(R,G)
+arr = []
+for i in range(1, isqrt(n)+1):
+    if n % i == 0:
+        arr.append(i)
+        if n // i == i:
+            continue
+        arr.append(n//i)
+
+for i in arr:
+    print(i,R//i,G//i)

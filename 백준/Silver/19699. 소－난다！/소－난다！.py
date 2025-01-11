@@ -2,23 +2,25 @@ import sys
 from itertools import combinations
 input = sys.stdin.readline
 
+MAX = 9001
+
+def make_prime():
+    prime = [i for i in range(MAX)]
+    prime[1] = 0
+    for i in range(2, MAX):
+        for j in range(i*2, MAX, i):
+            prime[j] = 0
+    return prime
+
 N,M = map(int,input().split())
 cows = list(map(int,input().split()))
-
-def check(num):
-    for i in range(2, num // 2):
-        if num % i == 0:
-            return False
-    return True
-
-
+prime = make_prime()
 res = set()
-for selected_cows in combinations(cows, M):
-    sum_weight = sum(selected_cows)
-    if check(sum_weight):
-        res.add(sum_weight)
+for selected in combinations(cows,M):
+    weight = sum(selected)
+    if prime[weight]:
+        res.add(weight)
 if not res:
     print(-1)
 else:
-    res = sorted(list(res))
-    print(*res)
+    print(*sorted(res))

@@ -22,17 +22,11 @@ def bfs(end):
             visited[nz][ny][nx] = 1
     return "Trapped!"
 
-
-
-
-
-
-
 while True:
     L,R,C = map(int,input().split())
     if L == R == C == 0:
         break
-
+        
     matrix = []
     for i in range(L):
         floor = [list(input().strip()) for _ in range(R)]
@@ -55,4 +49,3 @@ while True:
 
     ans = bfs(end)
     print(ans)
-

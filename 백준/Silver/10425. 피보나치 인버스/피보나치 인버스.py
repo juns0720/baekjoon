@@ -13,10 +13,10 @@ for tc in range(int(input())):
     n = int(input())
     s = 0
     e = len(fibo)  
-    while s < e:  
+    while s+1 < e:  
         mid = (s + e) // 2
-        if fibo[mid] < n: 
-            s = mid + 1  
+        if fibo[mid] <= n: 
+            s = mid 
         else:
             e = mid  
 

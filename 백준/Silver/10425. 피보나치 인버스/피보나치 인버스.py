@@ -2,12 +2,13 @@ import sys
 input = sys.stdin.readline
 
 fibo = [0,1,1,2,3]
-
-N = 5
-while N <= 100000:
+MAX = (10**21000)
+num = 0
+while num <= MAX:
     num = fibo[-1] + fibo[-2]
     fibo.append(num)
-    N+=1
+
+
 
 for tc in range(int(input())):
     n = int(input())

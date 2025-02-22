@@ -10,6 +10,7 @@ for _ in range(int(input())):
     dp[0] = 1
     for coin in coins:
         for i in range(coins[0],cost+1):
-            if i-coin >=0:
+            if i >= coin:
                 dp[i] += dp[i-coin]
     print(dp[cost])
+

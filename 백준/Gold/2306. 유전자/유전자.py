@@ -20,8 +20,6 @@ for l in range(3,length+1):
         s = e-l+1
         if s1[s]+s1[e] in KOI:
             max_len = dp[s+1][e-1]
-            for k in range(s+1,e-1):
-                max_len = max(max_len,dp[s+1][k] + dp[k+1][e-1])
             dp[s][e] = max(dp[s][e],max_len+2)
         for k in range(s,e):
             dp[s][e] = max(dp[s][e], dp[s][k] + dp[k+1][e])

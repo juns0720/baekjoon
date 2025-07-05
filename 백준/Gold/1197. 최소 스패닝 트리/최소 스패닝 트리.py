@@ -1,32 +1,35 @@
 import sys
+import heapq
+sys.setrecursionlimit(10**8)
 input = sys.stdin.readline
 
 V,E = map(int,input().split())
+hq = []
 parent = [i for i in range(V+1)]
-def find(x):
-    if x == parent[x]:
-        return x
+
+def find(v):
+    if parent[v] == v:
+        return v
+    parent[v] = find(parent[v])
+    return parent[v]
+
+
+def union(v1,v2):
+    v1 = find(v1)
+    v2 = find(v2)
+    if v1 < v2:
+        parent[v2] = v1
     else:
-        return find(parent[x])
+        parent[v1] = v2
 
-def union(a,b):
-    a = find(a)
-    b = find(b)
-    if a < b:
-        parent[b] = a
-    else:
-        parent[a] = b
+weight = 0
+for _ in range(E):
+    v1, v2, cost = map(int,input().split())
+    heapq.heappush(hq, (cost,v1,v2))
 
-arr = []
-sum = 0
-for i in range(E):
-    a,b,c = map(int,input().split())
-    arr.append([min(a,b),max(a,b),c])
-arr.sort(key = lambda x:x[2])
-
-
-for i in arr:
-    if find(i[0]) != find(i[1]):
-        union(i[0],i[1])
-        sum+=i[2]
-print(sum)
+while hq:
+    cost, v1, v2 = heapq.heappop(hq)
+    if find(v1) != find(v2):
+        weight+=cost
+        union(v1,v2)
+print(weight)

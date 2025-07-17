@@ -24,10 +24,5 @@ for v1 in range(1, n+1):
             if dp[v1][cnt] == -1:
                 continue
             dp[v2][cnt+1] = max(dp[v2][cnt+1], dp[v1][cnt] + cost[v1][v2])
-res = max(dp[n])
-
-if res == -1:
-    print(0)
-else:
-    print(res)
+print(max(dp[n]))
     

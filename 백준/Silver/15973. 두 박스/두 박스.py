@@ -12,9 +12,9 @@ px.sort(key = lambda x: (-x[0],-x[1]))
 
 if py[0][1] == py[1][0] and px[0][1] == px[1][0]:
     print("POINT")
-elif py[0][1] == py[1][0] or px[0][1] == px[1][0]:
-    print("LINE")
 elif not (py[0][1] <= py[1][0] <= py[0][0]) or not (px[0][1] <= px[1][0] <= px[0][0]):
     print("NULL")
+elif py[0][1] == py[1][0] or px[0][1] == px[1][0]:
+    print("LINE")
 else:
     print("FACE")

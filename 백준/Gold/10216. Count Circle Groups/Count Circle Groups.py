@@ -26,9 +26,6 @@ for tc in range(int(input())):
 
     for i in range(n):
         for j in range(i+1,n):
-            if find(i) == find(j):
-                continue 
-
             if isTrue(circle[i],circle[j]):
                 union(i,j)
 

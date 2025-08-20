@@ -21,15 +21,14 @@ def isTrue(c1,c2):
 for tc in range(int(input())):
 
     n = int(input())
+    res = n
     circle = [list(map(int,input().split())) for _ in range(n)]
     parent = [i for i in range(n)]
 
     for i in range(n):
         for j in range(i+1,n):
-            if isTrue(circle[i],circle[j]):
+            if isTrue(circle[i],circle[j]) and find(i) != find(j):
                 union(i,j)
-
-    res = set()
-    for i in range(n):
-        res.add(find(i))
-    print(len(res))
+                res -= 1
+                
+    print(res)

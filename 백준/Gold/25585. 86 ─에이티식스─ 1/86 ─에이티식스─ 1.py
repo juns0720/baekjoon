@@ -41,7 +41,9 @@ min_dist = INF
 visited = [0 for _ in range(len(region))]
 def solve(y, x, dist, depth):
     global min_dist
-
+    if dist > min_dist:
+        return
+    
     if depth == len(region):
         min_dist = min(min_dist, dist)
         return

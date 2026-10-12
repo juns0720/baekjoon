@@ -31,22 +31,19 @@ def solution(n, edges):
                 heapq.heappush(hq,(dist[v2],v2))
         return dist
         
-    def find(mv,md, dist):
-        for idx,d in enumerate(dist[1:]):
-            if d > md:
-                md = d
-                mv = idx+1
-                
-        return mv,md
+    def find(dist):
+        mv, md = 0, 0
+        for v in range(1, n + 1):
+            if dist[v] > md:
+                mv, md = v, dist[v]
+        return mv, md
     
-    v1,a = find(1,0,dijkstra(1))
+    v1,a = find(dijkstra(1))
     
     dist1 = dijkstra(v1)
-    v2,a = find(v1,0,dist1)
+    v2,a = find(dist1)
     
     dist2 = dijkstra(v2)
-    
-    max_dist = 0
     
     for v in range(1,n+1):
         if v in (v1,v2):

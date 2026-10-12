@@ -20,11 +20,11 @@ def solution(n, edges):
         while hq:
             cur_dist, v1 = heapq.heappop(hq)
             
-            if cur_dist < dist[v1]:
+            if cur_dist > dist[v1]:
                 continue
             
             for v2 in graph[v1]:
-                if dist[v2] < dist[v1]+1:
+                if dist[v2] <= dist[v1]+1:
                     continue
                 
                 dist[v2] = dist[v1]+1
